@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-4 mx-auto">
+            <h4>User Registration Form</h4>
+            <div class="mb-3">
+             <form method="POST" action="">
+                {% csrf_token %}
+                <table >
+                    {% for x in userform %}
+                    <tr>
+                        <td>{{x.label_tag}}</td>
+                        <td>{{x}}</td>
+                    </tr>
+
+                    {% endfor %}
+                    <tr>
+                        <td><input type="submit" value="Register" class="btn btn-danger"></td>
+                        <td>
+                        {% if success %}
+                        <span class="text-success">{{success}}</span>
+                        <a href="/user_login">Login</a>
+                        {% endif %}
+                        </td>
+                    </tr>
+                </table>
+             </form>
+            </div>
+         </div>
+    </div>
+</div>
+
+
+{% endblock 'main' %}

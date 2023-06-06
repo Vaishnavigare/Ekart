@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<div class="row">
+<div class="col-md-3 mt-4">
+  <h3 class="bg-secondary text-white p-2">Sort By Price</h3>
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link " href="/sort/0"><h5>Low to high</h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/sort/1"><h5>High to low</h5></a>
+    </li>
+  </ul><!--sort end-->
+  <h3 class="bg-secondary text-white p-2">Filters</h3>
+  <h4>By category</h4>
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link " href="/catfilter/1"><h5>Mobile</h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/catfilter/2"><h5>Cloths</h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/catfilter/3"><h5>Shoes</h5></a>
+    </li>
+  </ul><!-- category filter end-->
+
+  <h4>By Price</h4>
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link " href="/pricefilter/0"><h5> < Rs.5000 </h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/pricefilter/1"><h5>>= Rs.5000</h5></a>
+    </li>
+  </ul><!-- price filter end-->
+
+  <h4>By Price Range</h4>
+  <form action="/pricerange">
+    <div class="mb-3">
+      <label for="one" class="form-label">Min price</label>
+      <input type="number" class="form-control" name="min" id="one" placeholder="Min price">
+    </div>
+    <div class="mb-3">
+      <label for="two" class="form-label">Max price</label>
+      <input type="number" class="form-control" name="max" id="two" placeholder="Max price">
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-success">Apply</button>
+    </div>
+  </form><!-- price range filter end-->
+
+</div><!--sidebar end-->
+<div class="col-md-9">
+<div class="row mt-2">
+  {% for x in products %}
+    <div class="col-md-3 mt-3 mb-4">
+        <div class="card" style="width: 100%;">
+            <img src="{{x.pimage.url}}" class="card-img-top" style="height: 200px;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ x.name}}</h5>
+              {% if x.cat == 1 %}
+              <p class="card-text">Mobile</p>
+              {% elif x.cat == 2 %}
+              <p class="card-text">cloths</p>
+              {% elif x.cat == 3 %}
+              <p class="card-text">shoes</p>
+              {% endif %}
+              <h6>{{x.price}}</h6>
+              <a href="/pdetails/{{x.id}}" class="btn btn-secondary">See More</a>
+            </div>
+          </div><!--card ends-->
+    </div><!--col ends-->
+    {% endfor %}
+</div><!--row ends-->
+</div><!--product list end-->
+</div>
+
+
+{% endblock 'main' %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+
+<form method="post">
+   <div class="row mt-5 border border-black mx-auto p-2" style="width: 500px; height:350px;">
+   <div class="mb-2 row mt-3">
+
+       <label for="1" class="col-sm-2 col-form-label">Name</label>
+       <div class="col-auto mx-5">
+         <input type="text" name="sname" class="form-control" id="1" placeholder="Enter Your name" >
+       </div>
+     </div>
+
+     <div class="mb-3 row">
+      <label for="2" class="col-sm-2 col-form-label">Username</label>
+      <div class="col-auto mx-5">
+        <input type="email" name="uname" class="form-control" id="2" placeholder="Enter Your Username">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-auto mx-5">
+        <input type="email" name="uemail" class="form-control" id="3" placeholder="Enter Your Email-id">
+      </div>
+    </div>
+   
+     <div class="mb-3 row">
+       <label for="4" class="col-sm-2 col-form-label">Password</label>
+       <div class="col-auto mx-5">
+         <input type="password" name="upass" class="form-control" id="4" placeholder="Enter Your Password">
+       </div>
+     </div>
+
+     <div class="button mb-3 mt-2">
+     <button type="button" class="btn btn-danger btn-lg" type="submit">Register</button>
+     <p class="link mt-2">already have an account/<a style="color: black ;" href="/login">login</a></p>
+     </div>
+     
+
+   </div><!--login page end-->
+   </form>
+   <!---
+   <div class="mb-3 mt-5">
+       <label for="1" class="form-label">Name</label>
+      <input type="text" name="sname" class="form-control" id="1" placeholder="Enter Name" required>
+  </div>
+
+     <div class="mb-3 mt-2">
+       <label for="2" class="form-label">Email address</label>
+       <div class="col-md-auto-mx5">
+       <input type="email" name="uemail" class="form-control" id="2" placeholder="Enter Email" required>
+       </div>
+     </div>
+
+     <div class="mb-3 mt-2">
+       <label for="3" class="form-label">Username</label>
+       <div class="col-md-auto-mx5"></div>
+       <input type="email" name="uname" class="form-control" id="3" placeholder="Email" required>
+     </div>
+     </div>
+
+     <div class="row g-3 align-items-center">
+         <label for="pass1" class="col-form-label">Password</label>
+       </div>
+       <div class="col-md-auto-mx5">
+         <input type="password" name="upass" id="pass1" class="form-control" aria-labelledby="passwordHelpInline placeholder" placeholder="Enter password" required>
+       </div>
+       </div>
+      
+     </div>
+
+     <a href="#"><input class="btn btn-outline-secondary" type="submit" value="Submit"></a>
+
+     </form>--->
+
+{% endblock 'main' %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+ <div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5 mx-auto">
+            <h4>User Registration Form</h4>
+            <div class="mb-3">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <table >
+                    {{mform}}
+                    <tr>
+                        <td><input type="submit" value="create"></td>
+                    </tr>
+                </table>
+             </form>
+            </div>
+         </div>
+    </div>
+</div>
+
+{% endblock 'main' %}
+    
